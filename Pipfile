@@ -8,6 +8,8 @@ django = "*"
 pylint = "*"
 pylint-django = "*"
 djangorestframework = "*"
+pytest = "*"
+pytest-django = "*"
 
 [dev-packages]
 
