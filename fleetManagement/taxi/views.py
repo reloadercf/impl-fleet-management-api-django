@@ -9,4 +9,4 @@ class taxiViewSet(viewsets.ModelViewSet):
 
 class trajectoriesViewSet(viewsets.ModelViewSet):
     queryset            = Trajectories.objects.all()
-    serializers_class   = trajectoriesSerializer
+    serializer_class   = trajectoriesSerializer

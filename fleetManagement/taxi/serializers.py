@@ -7,6 +7,10 @@ class taxiSerializer(serializers.ModelSerializer):
         fields  = '__all__'
 
 class trajectoriesSerializer(serializers.ModelSerializer):
+    taxi        = serializers.PrimaryKeyRelatedField(
+                  queryset = Taxi.objects.all(),
+                  required = True,
+                  many     = False)
     class Meta:
         model   = Trajectories
         fields  = '__all__'
