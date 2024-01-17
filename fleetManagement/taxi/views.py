@@ -1,3 +1,12 @@
 from django.shortcuts import render
+from .models import *
+from .serializers import *
+from rest_framework import viewsets
 
-# Create your views here.
+class taxiViewSet(viewsets.ModelViewSet):
+    queryset            = Taxi.objects.all()
+    serializer_class    = taxiSerializer
+
+class trajectoriesViewSet(viewsets.ModelViewSet):
+    queryset            = Trajectories.objects.all()
+    serializers_class   = trajectoriesSerializer

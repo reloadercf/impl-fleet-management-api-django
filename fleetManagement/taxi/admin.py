@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import Taxi,Trajectories
 
-# Register your models here.
+admin.site.register(Taxi)
+admin.site.register(Trajectories)
