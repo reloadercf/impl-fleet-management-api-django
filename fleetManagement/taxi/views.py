@@ -10,3 +10,6 @@ class taxiViewSet(viewsets.ModelViewSet):
 class trajectoriesViewSet(viewsets.ModelViewSet):
     queryset            = Trajectories.objects.all()
     serializer_class   = trajectoriesSerializer
+
+def index(request):
+    return render(request, 'taxi/index.html')
