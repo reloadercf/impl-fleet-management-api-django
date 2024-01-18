@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Taxi(models.Model):
     plate   =   models.CharField(max_length=80)
@@ -7,6 +8,6 @@ class Taxi(models.Model):
     
 class Trajectories(models.Model):
     taxi        =   models.ForeignKey('taxi.Taxi', related_name='taxi_plate', on_delete=models.CASCADE)
-    date        =   models.DateField(auto_now_add=True)
-    latitude    =   models.DecimalField(max_digits=9, decimal_places=6)
-    longitude   =   models.DecimalField(max_digits=9, decimal_places=6)
+    date        =   models.DateTimeField(default=datetime.now)
+    latitude    =   models.FloatField()
+    longitude   =   models.FloatField()
