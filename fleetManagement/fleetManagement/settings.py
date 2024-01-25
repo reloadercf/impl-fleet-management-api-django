@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-ry79cy8hlondu9#6qxsc1ndcqi9n(y88^w*kp3@62gxpp4m+ve')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'RENDER' not in os.environ
+DEBUG = os.environ.get("DEBUG", "False").lower() == "True"
 
 # https://docs.djangoproject.com/en/3.0/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['']
@@ -93,13 +93,8 @@ WSGI_APPLICATION = 'fleetManagement.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://reloadercf:3LCa9yDktPyyxIPhLLEJHu5HHY6MgeNe@dpg-cmpb4len7f5s73ddlftg-a.oregon-postgres.render.com/postgres_jeun',
-        conn_max_age=600
-    )
-}
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
 
 
 # Password validation
