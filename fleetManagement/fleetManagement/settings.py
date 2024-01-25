@@ -93,8 +93,13 @@ WSGI_APPLICATION = 'fleetManagement.wsgi.application'
 #     }
 # }
 
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+DATABASES = {
+     'default': dj_database_url.config(
+         # Feel free to alter this value to suit your needs.
+         default='postgres://reloadercf:3LCa9yDktPyyxIPhLLEJHu5HHY6MgeNe@dpg-cmpb4len7f5s73ddlftg-a.oregon-postgres.render.com/postgres_jeun',
+         conn_max_age=600
+     )
+ }
 
 
 # Password validation
